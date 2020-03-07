@@ -15,20 +15,20 @@ Click on the “Develop Center“ option .
 	   
 Now click on “I need a new Sense License key” and then choose your EasyAR version (3.0 or 4.0) in the “Type” section.
    
-   1.Select “EasyAR Sense 4.0 Personal “ 
+	1.Select “EasyAR Sense 4.0 Personal “ 
 
-   2.Enter an App Name according to your choice 
+	2.Enter an App Name according to your choice 
 
-   3.Enter ‘com.your_name.your_app_name’  same in both  Bundle ID  and  
-     Package Name
+	3.Enter ‘com.your_name.your_app_name’  same in both  Bundle ID  and  
+          Package Name
 
-   4.Choose China in”SpatialMa Region:” option.
+	4.Choose China in”SpatialMa Region:” option.
 
-   5. Enter a “SpatialMap Database Name”.
+	5. Enter a “SpatialMap Database Name”.
    
-   6. Few restrictions are there:
+	6. Few restrictions are there:
 
-   7. Click on “confirm”.
+	7. Click on “confirm”.
 
 
 
@@ -57,7 +57,10 @@ Click on ImageTarget-namecard (hierarchy panel), copy and paste the name of your
 
 Drag and drop your video (from Assets) on quad (inside ImageTarget-namecard) (hierarchy panel).
 
-	  
+Congrats on Completing..
+
+In case you want to do it for version 3
+Follow steps
 
 
 ( Version 3)
@@ -85,9 +88,6 @@ Now click on “SDK Authorization” and then on “ADD SDK License Key”.
 STEP 4: 
 Go back to the Home page and in the downloads section scroll down to Unity part and download the Unity package (basic version)(right side of page ).
 
-
-
-
 STEP 5: 
 Now back in Unity drag that SDK in assets and import everything.
 
@@ -104,8 +104,7 @@ Now delete the cube (from image target), drag and drop the required video in Ass
 Click on ImageTarget (hierarchy panel), copy the name of your image (you can rename it in StreamingAssets folder) in Target Name option in “Image Target Controller” component and copy the name of your image along with its extension in Image Path option.
 
 Drag and drop your video (from Assets) on ImageTarget (hierarchy panel).
-
-	  
+Congrats on completing 
 
 
 

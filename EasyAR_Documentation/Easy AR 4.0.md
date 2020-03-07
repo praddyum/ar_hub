@@ -104,6 +104,7 @@ Now delete the cube (from image target), drag and drop the required video in Ass
 Click on ImageTarget (hierarchy panel), copy the name of your image (you can rename it in StreamingAssets folder) in Target Name option in “Image Target Controller” component and copy the name of your image along with its extension in Image Path option.
 
 Drag and drop your video (from Assets) on ImageTarget (hierarchy panel).
+
 Congrats on completing 
 
 

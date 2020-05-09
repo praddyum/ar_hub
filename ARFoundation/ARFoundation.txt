@@ -1,0 +1,58 @@
+Setup for ARFoundation (Only suppported on ARCore supported devices)
+[Link for ARCore Supported Devices List : https://developers.google.com/ar/discover/supported-devices ]
+
+[Project Setup]
+
+Step 1: Create a new 3D project in Unity.
+
+Step 2: Go to project settings, switch platform to android. Set the Company name and Product name along with the Package Name.
+	Turn off Multithreaded Rendering and remove Vulkan graphics API.
+	Set Minimum API level to 25 and close player settings.
+
+Step 3: Open Windows->Package Manager, Install "AR Foundation" and "ARCore XR Plugin". 
+
+	For Unity 2018:
+	AR Foundation 1.0.0 — preview.22 
+	ARCore XR Plugin 1.0.0 — preview.24
+	[Incase you don't see the above packages, Click on Advanced->Show Preview Packages.]
+	
+	For Unity 2019:
+	AR Foundation 2.1.8 / AR Foundation 3.1.3
+	ARCore XR Plugin 2.1.8 / ARCore XR Plugin 3.1.3 
+
+[Note: For Unity 2018 do not update the AR Foundation and ARCore XR Plugin version above the ones specified above as it will throw errors.]
+
+
+[Scene Setup]
+
+Step 4: Right-click on heirarchy, XR->"AR Session"
+	Right-click on heirarchy, XR->"AR Session Origin"	(AR Session Origin has its own AR camera so delete any other cameras in the scene.)
+
+Step 5: [This step is version Specific ] 
+	For Unity 2018: 
+	Add "AR Plane Manager" inbuilt script to "AR Session Orgin" GameObject.
+
+	For Unity 2019:
+	Add "AR Plane Manager" and "AR Raycast Manager" inbuilt scripts to "AR Session Orgin" GameObject.
+
+	[Note :The above mentioned scripts can be added by clicking on Add Component in the Inspector Panel and then Searching for them.]
+
+Step 6: Add a Cube or any other 3D Object in the scene. Reposition the cube so that the AR Camera can see it.
+	[ AR Camera is a Child of AR Session Origin ] 
+
+Now, you are done with the setup process. Build and Run the application on a ARCore supported Device and You Should see a cube ( or any other object) on your screen.
+
+
+[Deploy game objects in the environment on tap using raycasting]
+
+Step 7: Add a Placement Indicator gameObject. [Can be any quad or plane and should be present in the inspector]
+	Add a model you want to deploy. [Should be prefabbed and not in inspector]
+
+Step 8: Create an empty GameObject. Attach the provided script to the Empty Game Object and fill the details in inspector panel.
+	For Unity 2018: Use the ARTapToPlace_2018.cs file.
+	For Unity 2019: Use the ARTapToPlace.cs file.
+		
+	Note: 1) There is no need to give Placement Indicator Gameobject to "Plane Prefab" in "AR Plane Manager"
+	      2) Incase if your Placement Indicator jitters go to the "Tracked Pose Driver" component of you AR Camera change the Update Type to "Update"
+
+	Build and Enjoy! 

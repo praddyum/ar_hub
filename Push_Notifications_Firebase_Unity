@@ -1,0 +1,82 @@
+Set up a Firebase Cloud Messaging client app in Unity
+
+First, Sign into Firebase using your Google account.
+
+
+Step 1: Create a Firebase project
+Before you can add Firebase to your Unity project, you need to create a Firebase project to connect to your Unity project.
+
+Step 2: Register your app with Firebase
+You can register one or more apps or games to connect with your Firebase project.
+If you're releasing your game on both iOS and Android, register both build targets of your Unity project with the same Firebase project.
+
+  a. Go to the Firebase console.
+  b. In the center of the project overview page, click the Unity icon (plat_unity) to launch the setup workflow.
+  c. If you've already added an app to your Firebase project, click Add app to display the platform options.
+  d. Select which build target of your Unity project that you’d like to register, or you can even select to register both targets now at the same time.
+
+      For iOS — Enter your Unity project’s iOS ID in the iOS bundle ID field.
+      For Android — Enter your Unity project’s Android ID in the Android package name field.
+      The terms package name and application ID are often used interchangeably.
+      Make sure that you enter the ID that your app is actually using.
+      You cannot add or modify this value after you register your app with your Firebase project.
+
+  d. Click Register app.
+
+Step 3:
+Add Firebase configuration files-
+Obtain your platform-specific Firebase configuration file(s) in the Firebase console setup workflow.
+For iOS — Click Download GoogleService-Info.plist.
+For Android — Click Download google-services.json.
+
+  Now, Open the Project window of your Unity project, then move your config file(s) into the Assets folder.
+  Back in the Firebase console, in the setup workflow, click Next.
+
+Step 4: Add Firebase Unity SDKs
+For Unity Versions 2018 and above, Firebase can be integrated directly from the Package Manager>Windows without download the SDK.
+
+  Download the latest External Dependency Manager for Unity (EDM4U) from here: https://github.com/googlesamples/unity-jar-resolver/raw/master/external-dependency-manager-latest.unitypackage
+  Import the latest External Dependency Manager for Unity (EDM4U).
+  The Unity Package Manager Resolver will prompt you to add the Game Package Registry by Google to your project.
+  Select the registry and click the Add Selected Registries button.
+  EDM4U adds the registry to Packages/manifest.json under your current Unity project folder.
+
+Go to Package Manager>Windows and add the Firebase products that you want to use in your app, in this case, the Firebase Cloud Messaging pacakge.
+For an optimal experience with Firebase Cloud Messaging, we recommend enabling Google Analytics in your project.
+
+Back in the Firebase console, in the setup workflow, click Next.
+Your Unity project is registered and configured to use Firebase.
+
+Step 5: Initialize Firebase Cloud Messaging
+Make a new C# script in Unity
+The Firebase Cloud Message library will be initialized when adding handlers for either the TokenReceived or MessageReceived events.
+Upon initialization, a registration token is requested for the client app instance.
+The app will receive the token with the OnTokenReceived event, which should be cached for later use.
+You'll need this token if you want to target this specific device for messages.
+
+In addition, you will need to register for the OnMessageReceived event if you want to be able to receive incoming messages.
+
+The entire code looks like this:
+
+public void Start() {
+  Firebase.Messaging.FirebaseMessaging.TokenReceived += OnTokenReceived;
+  Firebase.Messaging.FirebaseMessaging.MessageReceived += OnMessageReceived;
+}
+
+public void OnTokenReceived(object sender, Firebase.Messaging.TokenReceivedEventArgs token) {
+  UnityEngine.Debug.Log("Received Registration Token: " + token.Token);
+}
+
+public void OnMessageReceived(object sender, Firebase.Messaging.MessageReceivedEventArgs e) {
+  UnityEngine.Debug.Log("Received a new message from: " + e.Message.From);
+}
+
+Step 6:
+Go to Firebase console and scroll down to the GROW list on the left side, under Project overview.
+CLick on Cloud Messaging.
+Select Create a New Cloud Meassage.
+Enter the Notification Title and Description and Schedule the notification to the desired time.
+Select the bundle indentifier using which you register the app in the Target Option
+CLick on Review and Publish.
+
+Your notification will be send to all the devices that have the client app installed!

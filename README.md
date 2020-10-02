@@ -1,5 +1,5 @@
-# ar_hub
-For the people by the people of ARHub
+# ar_hub (now XoRphilic)
+For the people by the people. 
 If u dont know how to use github plz contact your peers
 
 Basic commands:
